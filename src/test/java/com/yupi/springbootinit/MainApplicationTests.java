@@ -1,4 +1,4 @@
-package com.yupi.springbootinit;
+package com.backend.pro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

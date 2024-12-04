@@ -65,3 +65,37 @@ create table if not exists post_favour
     index idx_postId (postId),
     index idx_userId (userId)
 ) comment '帖子收藏';
+
+
+-- 字典表
+create table if not exists sys_dict_data
+(
+    id         bigint auto_increment comment 'id' primary key,
+    dictName   varchar(256)                       null comment '字典名称',
+    dictType   varchar(255)                       null comment '字典类型',
+    status     tinyint  default 0                 null comment '字典状态',
+    userId     bigint                             not null comment '创建用户 id',
+    editTime   datetime default CURRENT_TIMESTAMP not null comment '编辑时间',
+    createTime datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    updateTime datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete   tinyint  default 0                 not null comment '是否删除',
+    index idx_title (dictName)
+) comment '字典表' collate = utf8mb4_unicode_ci;
+
+-- 字典值表
+create table if not exists sys_dict_type
+(
+    id         bigint auto_increment comment 'id' primary key,
+    label      varchar(256)                       null comment '标签',
+    value      varchar(255)                       null comment '键值',
+    status     tinyint  default 0                 null comment '状态',
+    dictType   varchar(255)                       not null comment '字典类型',
+    userId     bigint                             not null comment '创建用户 id',
+    editTime   datetime default CURRENT_TIMESTAMP not null comment '编辑时间',
+    createTime datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    updateTime datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    isDelete   tinyint  default 0                 not null comment '是否删除',
+    index idx_title (label)
+) comment '字典值表' collate = utf8mb4_unicode_ci;
+
+
