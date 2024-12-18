@@ -1,6 +1,6 @@
 package com.backend.pro.service.system.user;
 
-import com.backend.pro.model.dto.user.UserQueryRequest;
+import com.backend.pro.model.dto.system.user.UserQueryRequest;
 import com.backend.pro.model.entity.system.user.User;
 import com.backend.pro.model.vo.LoginUserVO;
 import com.backend.pro.model.vo.UserVO;

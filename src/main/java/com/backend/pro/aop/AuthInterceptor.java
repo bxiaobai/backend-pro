@@ -17,6 +17,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import static com.backend.pro.common.CodeConstant.NO_AUTH_ERROR;
+
 /**
  * 权限校验 AOP
  *
@@ -52,17 +54,17 @@ public class AuthInterceptor {
         // 必须有该权限才通过
         UserRoleEnum userRoleEnum = UserRoleEnum.getEnumByValue(loginUser.getUserRole());
         if (userRoleEnum == null) {
-            throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+            throw new BusinessException(NO_AUTH_ERROR);
         }
         // 如果被封号，直接拒绝
         if (UserRoleEnum.BAN.equals(userRoleEnum)) {
-            throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+            throw new BusinessException(NO_AUTH_ERROR);
         }
         // 必须有管理员权限
         if (UserRoleEnum.ADMIN.equals(mustRoleEnum)) {
             // 用户没有管理员权限，拒绝
             if (!UserRoleEnum.ADMIN.equals(userRoleEnum)) {
-                throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+                throw new BusinessException(NO_AUTH_ERROR);
             }
         }
         // 通过权限校验，放行

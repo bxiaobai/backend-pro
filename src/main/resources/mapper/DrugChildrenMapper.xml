@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.backend.pro.mapper.appts.DrugChildrenMapper">
+
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.appts.DrugChildren">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="sjly" column="Sjly" jdbcType="VARCHAR"/>
+            <result property="cfsbh" column="Cfsbh" jdbcType="VARCHAR"/>
+            <result property="ds" column="Ds" jdbcType="VARCHAR"/>
+            <result property="gg" column="Gg" jdbcType="VARCHAR"/>
+            <result property="jl" column="Jl" jdbcType="VARCHAR"/>
+            <result property="pd" column="Pd" jdbcType="VARCHAR"/>
+            <result property="psxx" column="Psxx" jdbcType="TINYINT"/>
+            <result property="ypmc" column="Ypmc" jdbcType="VARCHAR"/>
+            <result property="z_id" column="Z_id" jdbcType="INTEGER"/>
+            <result property="cfls" column="cfls" jdbcType="VARCHAR"/>
+            <result property="kkcbz" column="kkcbz" jdbcType="TINYINT"/>
+            <result property="fysycs" column="fysycs" jdbcType="TINYINT"/>
+            <result property="dsybz" column="Dsybz" jdbcType="TINYINT"/>
+            <result property="sl" column="Sl" jdbcType="INTEGER"/>
+            <result property="psjg" column="Psjg" jdbcType="INTEGER"/>
+            <result property="yf" column="yf" jdbcType="TINYINT"/>
+            <result property="ypid" column="ypid" jdbcType="VARCHAR"/>
+            <result property="ypcs" column="ypcs" jdbcType="TINYINT"/>
+            <result property="sydh" column="sydh" jdbcType="VARCHAR"/>
+            <result property="sycs" column="sycs" jdbcType="TINYINT"/>
+            <result property="bzjl" column="bzjl" jdbcType="VARCHAR"/>
+            <result property="yfms" column="yfms" jdbcType="VARCHAR"/>
+            <result property="kssbz" column="kssbz" jdbcType="TINYINT"/>
+            <result property="ylts" column="ylts" jdbcType="VARCHAR"/>
+            <result property="pcdm" column="pcdm" jdbcType="TINYINT"/>
+            <result property="yytj" column="yytj" jdbcType="VARCHAR"/>
+            <result property="kbbz" column="kbbz" jdbcType="VARCHAR"/>
+            <result property="jpid" column="jpid" jdbcType="INTEGER"/>
+            <result property="ps" column="ps" jdbcType="VARCHAR"/>
+            <result property="bz" column="bz" jdbcType="VARCHAR"/>
+            <result property="zby" column="zby" jdbcType="TINYINT"/>
+            <result property="sfzt" column="sfzt" jdbcType="TINYINT"/>
+            <result property="dose" column="Dose" jdbcType="VARCHAR"/>
+            <result property="unit" column="Unit" jdbcType="VARCHAR"/>
+            <result property="sysc" column="sysc" jdbcType="INTEGER"/>
+            <result property="drug_id" column="drug_id" jdbcType="VARCHAR"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,Sjly,Cfsbh,
+        Ds,Gg,Jl,
+        Pd,Psxx,Ypmc,
+        Z_id,cfls,kkcbz,
+        fysycs,Dsybz,Sl,
+        Psjg,yf,ypid,
+        ypcs,sydh,sycs,
+        bzjl,yfms,kssbz,
+        ylts,pcdm,yytj,
+        kbbz,jpid,ps,
+        bz,zby,sfzt,
+        Dose,Unit,sysc,
+        drug_id,userId,createTime,
+        updateTime,isDelete
+    </sql>
+</mapper>

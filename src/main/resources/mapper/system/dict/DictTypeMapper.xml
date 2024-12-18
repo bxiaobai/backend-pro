@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.backend.pro.mapper.system.dict.DictTypeMapper">
 
-    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.system.dict.DictType">
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.system.dict.DictData">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="label" column="label" jdbcType="VARCHAR"/>
             <result property="value" column="value" jdbcType="VARCHAR"/>
@@ -23,4 +23,17 @@
         editTime,createTime,updateTime,
         isDelete
     </sql>
+    <insert id="insertBatch">
+        insert into sys_dict_type(id,label,value,
+        status,dictType,userId,
+        editTime,createTime,updateTime,
+        isDelete)
+        values
+        <foreach collection="dictTypeCollection" item="item" separator=",">
+            (#{item.id,jdbcType=NUMERIC},#{item.label,jdbcType=VARCHAR},#{item.value,jdbcType=VARCHAR},
+            #{item.status,jdbcType=NUMERIC},#{item.dictType,jdbcType=VARCHAR},#{item.userId,jdbcType=NUMERIC},
+            #{item.editTime,jdbcType=TIMESTAMP},#{item.createTime,jdbcType=TIMESTAMP},#{item.updateTime,jdbcType=TIMESTAMP},
+            #{item.isDelete,jdbcType=NUMERIC})
+        </foreach>
+    </insert>
 </mapper>

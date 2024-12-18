@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.backend.pro.mapper.appts.TemplateMapper">
+
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.appts.Template">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="irId" column="irId" jdbcType="BIGINT"/>
+            <result property="startTime" column="startTime" jdbcType="TIME"/>
+            <result property="endTime" column="endTime" jdbcType="TIME"/>
+            <result property="patType" column="patType" jdbcType="TINYINT"/>
+            <result property="normalNum" column="normalNum" jdbcType="TINYINT"/>
+            <result property="tempNum" column="tempNum" jdbcType="TINYINT"/>
+            <result property="editUserId" column="editUserId" jdbcType="BIGINT"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,irId,startTime,
+        endTime,patType,normalNum,
+        tempNum,editUserId,userId,
+        createTime,updateTime,isDelete
+    </sql>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.backend.pro.mapper.apt.ScaleMapper">
+
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.med.apt.Scale">
+            <id property="scaleId" column="scaleId" jdbcType="BIGINT"/>
+            <result property="detailsId" column="detailsId" jdbcType="BIGINT"/>
+            <result property="result" column="result" jdbcType="CHAR"/>
+            <result property="scaleSuggest" column="scaleSuggest" jdbcType="VARCHAR"/>
+            <result property="scaleJson" column="scaleJson" jdbcType="VARCHAR"/>
+            <result property="tag" column="tag" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        scaleId,detailsId,result,
+        scaleSuggest,scaleJson,tag
+    </sql>
+</mapper>

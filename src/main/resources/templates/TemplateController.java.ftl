@@ -53,7 +53,7 @@ public class ${upperDataKey}Controller {
      */
     @PostMapping("/add")
     public BaseResponse<Long> add${upperDataKey}(@RequestBody ${upperDataKey}AddRequest ${dataKey}AddRequest, HttpServletRequest request) {
-        ThrowUtils.throwIf(${dataKey}AddRequest == null, ErrorCode.PARAMS_ERROR);
+        ThrowUtils.throwIf(${dataKey}AddRequest == null, PARAMS_ERROR);
         // todo 在此处将实体类和 DTO 进行转换
         ${upperDataKey} ${dataKey} = new ${upperDataKey}();
         BeanUtils.copyProperties(${dataKey}AddRequest, ${dataKey});
@@ -64,7 +64,7 @@ public class ${upperDataKey}Controller {
         ${dataKey}.setUserId(loginUser.getId());
         // 写入数据库
         boolean result = ${dataKey}Service.save(${dataKey});
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        ThrowUtils.throwIf(!result, OPERATION_ERROR);
         // 返回新写入的数据 id
         long new${upperDataKey}Id = ${dataKey}.getId();
         return ResultUtils.success(new${upperDataKey}Id);
@@ -80,20 +80,20 @@ public class ${upperDataKey}Controller {
     @PostMapping("/delete")
     public BaseResponse<Boolean> delete${upperDataKey}(@RequestBody DeleteRequest deleteRequest, HttpServletRequest request) {
         if (deleteRequest == null || deleteRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+            throw new BusinessException(PARAMS_ERROR);
         }
         User user = userService.getLoginUser(request);
         long id = deleteRequest.getId();
         // 判断是否存在
         ${upperDataKey} old${upperDataKey} = ${dataKey}Service.getById(id);
-        ThrowUtils.throwIf(old${upperDataKey} == null, ErrorCode.NOT_FOUND_ERROR);
+        ThrowUtils.throwIf(old${upperDataKey} == null, NOT_FOUND_ERROR);
         // 仅本人或管理员可删除
         if (!old${upperDataKey}.getUserId().equals(user.getId()) && !userService.isAdmin(request)) {
-            throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+            throw new BusinessException(NO_AUTH_ERROR);
         }
         // 操作数据库
         boolean result = ${dataKey}Service.removeById(id);
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        ThrowUtils.throwIf(!result, OPERATION_ERROR);
         return ResultUtils.success(true);
     }
 
@@ -107,7 +107,7 @@ public class ${upperDataKey}Controller {
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     public BaseResponse<Boolean> update${upperDataKey}(@RequestBody ${upperDataKey}UpdateRequest ${dataKey}UpdateRequest) {
         if (${dataKey}UpdateRequest == null || ${dataKey}UpdateRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+            throw new BusinessException(PARAMS_ERROR);
         }
         // todo 在此处将实体类和 DTO 进行转换
         ${upperDataKey} ${dataKey} = new ${upperDataKey}();
@@ -117,10 +117,10 @@ public class ${upperDataKey}Controller {
         // 判断是否存在
         long id = ${dataKey}UpdateRequest.getId();
         ${upperDataKey} old${upperDataKey} = ${dataKey}Service.getById(id);
-        ThrowUtils.throwIf(old${upperDataKey} == null, ErrorCode.NOT_FOUND_ERROR);
+        ThrowUtils.throwIf(old${upperDataKey} == null, NOT_FOUND_ERROR);
         // 操作数据库
         boolean result = ${dataKey}Service.updateById(${dataKey});
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        ThrowUtils.throwIf(!result, OPERATION_ERROR);
         return ResultUtils.success(true);
     }
 
@@ -132,10 +132,10 @@ public class ${upperDataKey}Controller {
      */
     @GetMapping("/get/vo")
     public BaseResponse<${upperDataKey}VO> get${upperDataKey}VOById(long id, HttpServletRequest request) {
-        ThrowUtils.throwIf(id <= 0, ErrorCode.PARAMS_ERROR);
+        ThrowUtils.throwIf(id <= 0, PARAMS_ERROR);
         // 查询数据库
         ${upperDataKey} ${dataKey} = ${dataKey}Service.getById(id);
-        ThrowUtils.throwIf(${dataKey} == null, ErrorCode.NOT_FOUND_ERROR);
+        ThrowUtils.throwIf(${dataKey} == null, NOT_FOUND_ERROR);
         // 获取封装类
         return ResultUtils.success(${dataKey}Service.get${upperDataKey}VO(${dataKey}, request));
     }
@@ -170,7 +170,7 @@ public class ${upperDataKey}Controller {
         long current = ${dataKey}QueryRequest.getCurrent();
         long size = ${dataKey}QueryRequest.getPageSize();
         // 限制爬虫
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+        ThrowUtils.throwIf(size > 20, PARAMS_ERROR);
         // 查询数据库
         Page<${upperDataKey}> ${dataKey}Page = ${dataKey}Service.page(new Page<>(current, size),
                 ${dataKey}Service.getQueryWrapper(${dataKey}QueryRequest));
@@ -188,14 +188,14 @@ public class ${upperDataKey}Controller {
     @PostMapping("/my/list/page/vo")
     public BaseResponse<Page<${upperDataKey}VO>> listMy${upperDataKey}VOByPage(@RequestBody ${upperDataKey}QueryRequest ${dataKey}QueryRequest,
                                                                  HttpServletRequest request) {
-        ThrowUtils.throwIf(${dataKey}QueryRequest == null, ErrorCode.PARAMS_ERROR);
+        ThrowUtils.throwIf(${dataKey}QueryRequest == null, PARAMS_ERROR);
         // 补充查询条件，只查询当前登录用户的数据
         User loginUser = userService.getLoginUser(request);
         ${dataKey}QueryRequest.setUserId(loginUser.getId());
         long current = ${dataKey}QueryRequest.getCurrent();
         long size = ${dataKey}QueryRequest.getPageSize();
         // 限制爬虫
-        ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
+        ThrowUtils.throwIf(size > 20, PARAMS_ERROR);
         // 查询数据库
         Page<${upperDataKey}> ${dataKey}Page = ${dataKey}Service.page(new Page<>(current, size),
                 ${dataKey}Service.getQueryWrapper(${dataKey}QueryRequest));
@@ -213,7 +213,7 @@ public class ${upperDataKey}Controller {
     @PostMapping("/edit")
     public BaseResponse<Boolean> edit${upperDataKey}(@RequestBody ${upperDataKey}EditRequest ${dataKey}EditRequest, HttpServletRequest request) {
         if (${dataKey}EditRequest == null || ${dataKey}EditRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+            throw new BusinessException(PARAMS_ERROR);
         }
         // todo 在此处将实体类和 DTO 进行转换
         ${upperDataKey} ${dataKey} = new ${upperDataKey}();
@@ -224,14 +224,14 @@ public class ${upperDataKey}Controller {
         // 判断是否存在
         long id = ${dataKey}EditRequest.getId();
         ${upperDataKey} old${upperDataKey} = ${dataKey}Service.getById(id);
-        ThrowUtils.throwIf(old${upperDataKey} == null, ErrorCode.NOT_FOUND_ERROR);
+        ThrowUtils.throwIf(old${upperDataKey} == null, NOT_FOUND_ERROR);
         // 仅本人或管理员可编辑
         if (!old${upperDataKey}.getUserId().equals(loginUser.getId()) && !userService.isAdmin(loginUser)) {
-            throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
+            throw new BusinessException(NO_AUTH_ERROR);
         }
         // 操作数据库
         boolean result = ${dataKey}Service.updateById(${dataKey});
-        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        ThrowUtils.throwIf(!result, OPERATION_ERROR);
         return ResultUtils.success(true);
     }
 

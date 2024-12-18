@@ -9,8 +9,8 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 字典表
- * @TableName sys_dict_data
+ * 字典值表
+ * @TableName sys_dict_type
  */
 @TableName(value ="sys_dict_data")
 @Data
@@ -18,23 +18,28 @@ public class DictData implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
-     * 字典名称
+     * 标签
      */
-    private String dictName;
+    private String label;
+
+    /**
+     * 键值
+     */
+    private String value;
+
+    /**
+     * 状态
+     */
+    private Integer status;
 
     /**
      * 字典类型
      */
     private String dictType;
-
-    /**
-     * 字典状态
-     */
-    private Integer status;
 
     /**
      * 创建用户 id
@@ -45,6 +50,8 @@ public class DictData implements Serializable {
      * 编辑时间
      */
     private Date editTime;
+
+    private Long editUserId;
 
     /**
      * 创建时间

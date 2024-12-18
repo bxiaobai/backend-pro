@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.backend.pro.mapper.ir.seat.SeatMapper">
+
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.ir.seat.Seat">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="irId" column="irId" jdbcType="BIGINT"/>
+            <result property="seatNumber" column="seatNumber" jdbcType="VARCHAR"/>
+            <result property="patType" column="patType" jdbcType="TINYINT"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="area" column="area" jdbcType="VARCHAR"/>
+            <result property="seatRow" column="seatRow" jdbcType="TINYINT"/>
+            <result property="seatCol" column="seatCol" jdbcType="TINYINT"/>
+            <result property="flag" column="flag" jdbcType="VARCHAR"/>
+            <result property="editUserId" column="editUserId" jdbcType="BIGINT"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,irId,seatNumber,
+        patType,status,area,
+        seatRow,seatCol,flag,
+        editUserId,userId,createTime,
+        updateTime,isDelete
+    </sql>
+</mapper>

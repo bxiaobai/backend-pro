@@ -1,6 +1,7 @@
 package com.backend.pro.exception;
 
 import com.backend.pro.common.ErrorCode;
+import lombok.Getter;
 
 /**
  * 自定义异常类
@@ -8,6 +9,7 @@ import com.backend.pro.common.ErrorCode;
  * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
  * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
+@Getter
 public class BusinessException extends RuntimeException {
 
     /**
@@ -21,7 +23,7 @@ public class BusinessException extends RuntimeException {
     }
 
     public BusinessException(ErrorCode errorCode) {
-        super(errorCode.getMessage());
+        super(errorCode.getMsg());
         this.code = errorCode.getCode();
     }
 
@@ -30,7 +32,4 @@ public class BusinessException extends RuntimeException {
         this.code = errorCode.getCode();
     }
 
-    public int getCode() {
-        return code;
-    }
 }

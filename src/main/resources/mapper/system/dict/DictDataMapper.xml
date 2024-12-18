@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.backend.pro.mapper.system.dict.DictDataMapper">
 
-    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.system.dict.DictData">
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.system.dict.DictType">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="dictName" column="dictName" jdbcType="VARCHAR"/>
             <result property="dictType" column="dictType" jdbcType="VARCHAR"/>

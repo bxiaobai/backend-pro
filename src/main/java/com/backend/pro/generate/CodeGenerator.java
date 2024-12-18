@@ -47,13 +47,13 @@ public class CodeGenerator {
         String inputPath = projectPath + File.separator + "src/main/resources/templates/模板名称.java.ftl";
         String outputPath = String.format("%s/generator/包名/%s类后缀.java", projectPath, upperDataKey);
 
-        // 1、生成 Controller
+        // 1、生成 DetailsController
         // 指定生成路径
         inputPath = projectPath + File.separator + "src/main/resources/templates/TemplateController.java.ftl";
         outputPath = String.format("%s/generator/controller/%sController.java", projectPath, upperDataKey);
         // 生成
         doGenerate(inputPath, outputPath, dataModel);
-        System.out.println("生成 Controller 成功，文件路径：" + outputPath);
+        System.out.println("生成 DetailsController 成功，文件路径：" + outputPath);
 
         // 2、生成 Service 接口和实现类
         // 生成 Service 接口

@@ -4,37 +4,30 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
+
 import lombok.Data;
 
 /**
- * 字典值表
- * @TableName sys_dict_type
+ * 字典表
+ *
+ * @TableName sys_dict_data
  */
-@TableName(value ="sys_dict_type")
+@TableName(value = "sys_dict_type")
 @Data
 public class DictType implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
-     * 标签
+     * 字典名称
      */
-    private String label;
-
-    /**
-     * 键值
-     */
-    private String value;
-
-    /**
-     * 状态
-     */
-    private Integer status;
+    private String dictName;
 
     /**
      * 字典类型
@@ -42,9 +35,19 @@ public class DictType implements Serializable {
     private String dictType;
 
     /**
+     * 字典状态
+     */
+    private Integer status;
+
+    /**
      * 创建用户 id
      */
     private Long userId;
+
+    /**
+     * 编辑用户 id
+     */
+    private Long editUserId;
 
     /**
      * 编辑时间
@@ -65,6 +68,7 @@ public class DictType implements Serializable {
      * 是否删除
      */
     private Integer isDelete;
+
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.backend.pro.mapper.med.pat.PatMapper">
+
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.med.pat.Pat">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="birthday" column="birthday" jdbcType="DATE"/>
+            <result property="companyAddress" column="companyAddress" jdbcType="VARCHAR"/>
+            <result property="companyName" column="companyName" jdbcType="VARCHAR"/>
+            <result property="contactAddress" column="contactAddress" jdbcType="VARCHAR"/>
+            <result property="card" column="card" jdbcType="VARCHAR"/>
+            <result property="height" column="height" jdbcType="INTEGER"/>
+            <result property="marriageCode" column="marriageCode" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="nameSpell" column="nameSpell" jdbcType="VARCHAR"/>
+            <result property="registedResidenceAddress" column="registedResidenceAddress" jdbcType="VARCHAR"/>
+            <result property="sexCode" column="sexCode" jdbcType="INTEGER"/>
+            <result property="weight" column="weight" jdbcType="INTEGER"/>
+            <result property="displayAge" column="displayAge" jdbcType="VARCHAR"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,birthday,companyAddress,
+        companyName,contactAddress,card,
+        height,marriageCode,name,
+        nameSpell,registedResidenceAddress,sexCode,
+        weight,displayAge,userId,
+        createTime,updateTime,isDelete
+    </sql>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.backend.pro.mapper.ir.room.RoomMapper">
+
+    <resultMap id="BaseResultMap" type="com.backend.pro.model.entity.ir.room.Room">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="irName" column="irName" jdbcType="VARCHAR"/>
+            <result property="irDesc" column="irDesc" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="smsTemplateId" column="smsTemplateId" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="numberPoint" column="numberPoint" jdbcType="VARCHAR"/>
+            <result property="irPlace" column="irPlace" jdbcType="VARCHAR"/>
+            <result property="patType" column="patType" jdbcType="TINYINT"/>
+            <result property="editUserId" column="editUserId" jdbcType="BIGINT"/>
+            <result property="userId" column="userId" jdbcType="BIGINT"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,irName,irDesc,
+        status,smsTemplateId,phone,
+        numberPoint,irPlace,patType,
+        editUserId,userId,createTime,
+        updateTime,isDelete
+    </sql>
+</mapper>
